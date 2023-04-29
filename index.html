@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#041a25" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="preload" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/native-like-experience.css" />
+    <script
+      async
+      src="https://unpkg.com/pwacompat"
+      crossorigin="anonymous"
+    ></script>
+    <title>ChatBot</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((registration) => {
+              console.log("SW registration successful");
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
